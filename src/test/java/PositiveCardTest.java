@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +35,7 @@ public class PositiveCardTest {
     }
 
     @Test
-    void positiveTest() throws InterruptedException {
+    void positiveTest() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Ефремов");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79987654329");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
