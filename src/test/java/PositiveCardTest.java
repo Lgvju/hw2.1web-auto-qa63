@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PositiveCardTest {
     private WebDriver driver;
 
-    @BeforeAll
-    static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
+   @BeforeAll
+     static void setUpAll() {
+       WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
@@ -33,16 +33,14 @@ public class PositiveCardTest {
         driver.quit();
         driver = null;
     }
-
     @Test
-    void positiveTest() {
+    void positivePath(){//} throws InterruptedException {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Ефремов");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79987654329");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79999999999");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button.button")).click();
-//        Thread.sleep(5000);
         String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
-//        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim(); //var - Idea сама выбирает тип переменной
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
     }
 }
+
